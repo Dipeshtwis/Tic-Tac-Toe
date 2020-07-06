@@ -28,9 +28,8 @@ describe Move do
 		end
 
 		context "If number is present in the array" do
-			let(:player_number){'Iggy : [1, 2]'}
 			it "return true if number is already present in the array" do
-				expect(player_number.number_present("2")).to eql(true)
+				expect(move.number_present(2)).to eql(true)
 			end
 		end
 	end
