@@ -10,12 +10,12 @@ class Move
 
   def add_move(player, number)
     @@move[player] << number.to_i if @@move[player].size < 5
-    @@count += 1
+    # @@count += 1
   end
 
-  def find_players
-    @@move.each_with_index { |item, _index| print "#{item} \n" }
-  end
+  # def find_players
+  #   @@move.each_with_index { |item, _index| print "#{item} \n" }
+  # end
 
   def number_present(number)
     if @@emp_array.include?(number.to_i) || !((number.to_i <= 9) && (number.to_i >= 1))

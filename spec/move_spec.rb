@@ -9,4 +9,10 @@ describe Move do
 			expect(move.add_player(player)).to eql([])
 		end
 	end
+
+	describe "#add_move" do
+		it "add move to the array" do
+			expect(move.add_move(player.name, 6)).to eql([6])
+		end
+	end
 end
