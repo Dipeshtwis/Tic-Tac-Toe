@@ -30,15 +30,18 @@ puts "This is the board \n"
 board = " 1 | 2 | 3 | \n 4 | 5 | 6 | \n 7 | 8 | 9 |"
 puts board
 
+emp_array = []
 win = false
 i = 1
 while i <= 9
   if i.odd?
     p "It's #{p1} turn, please enter a digit between 1-9"
     x = gets.chomp
-    if move.number_present(x)
+    if emp_array.include?(x.to_i) || !((x.to_i <= 9) && (x.to_i >= 1))
       puts "The number entered is either invalid or duplicate!\n please put an another number"
       next
+    else
+      emp_array.push(x.to_i)
     end
     move.add_move(one.name, x)
     p "your move is on slot #{x}"
@@ -52,9 +55,11 @@ while i <= 9
   else
     p "It's #{p2} turn, please enter a digit between 1-9"
     o = gets.chomp
-    if move.number_present(o)
+    if emp_array.include?(o.to_i) || !((o.to_i <= 9) && (o.to_i >= 1))
       puts "The number entered is either invalid or duplicate!\n please put an another number"
       next
+    else
+      emp_array.push(o.to_i)
     end
     move.add_move(two.name, o)
     p "your move is on slot #{o}"
