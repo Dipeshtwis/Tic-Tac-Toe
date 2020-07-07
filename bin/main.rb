@@ -2,6 +2,8 @@
 require_relative '../lib/player'
 require_relative '../lib/move'
 move = Move.new
+value1 = []
+value2 = []
 p 'Welcome to this nice Tic-tac-toe game'
 p 'Enter player 1 name'
 p1 = gets.chomp
@@ -30,19 +32,23 @@ puts "This is the board \n"
 board = " 1 | 2 | 3 | \n 4 | 5 | 6 | \n 7 | 8 | 9 |"
 puts board
 
+emp_array = []
 win = false
 i = 1
 while i <= 9
   if i.odd?
     p "It's #{p1} turn, please enter a digit between 1-9"
     x = gets.chomp
-    if move.number_present(x)
+    if emp_array.include?(x.to_i) || !((x.to_i <= 9) && (x.to_i >= 1))
       puts "The number entered is either invalid or duplicate!\n please put an another number"
       next
+    else
+      emp_array.push(x.to_i)
     end
+    value1.push(x.to_i)
     move.add_move(one.name, x)
     p "your move is on slot #{x}"
-    if move.win_check(one.name)
+    if move.win_check(one.name, value1)
       puts board.gsub!(x, 'X')
       puts "winner is #{one.name}"
       win = true
@@ -52,13 +58,16 @@ while i <= 9
   else
     p "It's #{p2} turn, please enter a digit between 1-9"
     o = gets.chomp
-    if move.number_present(o)
+    if emp_array.include?(o.to_i) || !((o.to_i <= 9) && (o.to_i >= 1))
       puts "The number entered is either invalid or duplicate!\n please put an another number"
       next
+    else
+      emp_array.push(o.to_i)
     end
+    value2.push(o.to_i)
     move.add_move(two.name, o)
     p "your move is on slot #{o}"
-    if move.win_check(two.name)
+    if move.win_check(two.name, value2)
       puts board.gsub!(o, 'O')
       puts "winner is #{two.name}"
       win = true

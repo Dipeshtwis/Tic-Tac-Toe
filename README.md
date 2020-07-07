@@ -23,6 +23,21 @@ Implementation of the tic-tac-toe game in ruby - command line. This is a two pla
 
 These instructions will get you a copy of the project up and running on your local machine.
 
+## How To Run the test 🔧
+
+From your command line, first clone the project:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/kiptubei/Tic-Tac-Toe.git
+
+# Go into the folder Tic-tac-toe where the game is present
+$ cd Tic-Tac-Toe
+
+# In command prompt, run the following command to test
+$ rspec
+
+```
 
 ## How To Use 🔧
 
