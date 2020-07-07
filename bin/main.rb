@@ -2,7 +2,8 @@
 require_relative '../lib/player'
 require_relative '../lib/move'
 move = Move.new
-value = {}
+value1 = []
+value2 = []
 p 'Welcome to this nice Tic-tac-toe game'
 p 'Enter player 1 name'
 p1 = gets.chomp
@@ -44,9 +45,10 @@ while i <= 9
     else
       emp_array.push(x.to_i)
     end
+    value1.push(x.to_i)
     move.add_move(one.name, x)
     p "your move is on slot #{x}"
-    if move.win_check(one.name, value)
+    if move.win_check(one.name, value1)
       puts board.gsub!(x, 'X')
       puts "winner is #{one.name}"
       win = true
@@ -62,9 +64,10 @@ while i <= 9
     else
       emp_array.push(o.to_i)
     end
+    value2.push(o.to_i)
     move.add_move(two.name, o)
     p "your move is on slot #{o}"
-    if move.win_check(two.name, value)
+    if move.win_check(two.name, value2)
       puts board.gsub!(o, 'O')
       puts "winner is #{two.name}"
       win = true
